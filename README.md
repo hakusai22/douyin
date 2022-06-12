@@ -12,7 +12,4 @@
 <br />
 
 
-
-<p align="center">
-  <h3 align="center">字节青训营抖音项目</h3>
-</p>
+<h3 align="center">字节青训营抖音项目</h3>
