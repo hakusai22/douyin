@@ -15,7 +15,7 @@
 <h3 align="center">字节青训营抖音项目</h3>
 
 <!-- links -->
-[your-project-path]:mrxuexi/tiktok
+[your-project-path]: hakusai22/douyin
 [contributors-shield]: https://img.shields.io/github/contributors/hakusai22/douyin.svg?style=flat-square
 [contributors-url]: https://github.com/hakusai22/douyin/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/hakusai22/douyin.svg?style=flat-square
@@ -25,7 +25,7 @@
 [issues-shield]: https://img.shields.io/github/issues/hakusai22/douyinsvg?style=flat-square
 [issues-url]: https://img.shields.io/github/issues/hakusai22/douyin.svg
 [license-shield]: https://img.shields.io/github/license/hakusai22/douyin.svg?style=flat-square
-[license-url]: https://github.com/mrxuexi/tiktok/blob/master/LICENSE.txt
+[license-url]: https://github.com/hakusai22/douyin/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/xxxx
 
