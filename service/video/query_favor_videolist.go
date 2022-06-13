@@ -2,7 +2,7 @@ package video
 
 import (
 	"errors"
-	"github.com/ACking-you/byte_douyin_project/models"
+	"github.com/hakusai22/douyin/models"
 )
 
 type FavorList struct {

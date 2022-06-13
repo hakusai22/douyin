@@ -1,8 +1,8 @@
 package user_info
 
 import (
-	"github.com/ACking-you/byte_douyin_project/cache"
-	"github.com/ACking-you/byte_douyin_project/models"
+	"github.com/hakusai22/douyin/cache"
+	"github.com/hakusai22/douyin/models"
 )
 
 type FollowerList struct {

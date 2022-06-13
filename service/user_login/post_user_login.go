@@ -2,8 +2,8 @@ package user_login
 
 import (
 	"errors"
-	"github.com/ACking-you/byte_douyin_project/middleware"
-	"github.com/ACking-you/byte_douyin_project/models"
+	"github.com/hakusai22/douyin/middleware"
+	"github.com/hakusai22/douyin/models"
 )
 
 // PostUserLogin 注册用户并得到token和id

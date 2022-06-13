@@ -3,8 +3,8 @@ package comment
 import (
 	"errors"
 	"fmt"
-	"github.com/ACking-you/byte_douyin_project/models"
-	"github.com/ACking-you/byte_douyin_project/util"
+	"github.com/hakusai22/douyin/models"
+	"github.com/hakusai22/douyin/util"
 )
 
 type List struct {

@@ -1,13 +1,13 @@
 package router
 
 import (
-	"github.com/ACking-you/byte_douyin_project/handlers/comment"
-	"github.com/ACking-you/byte_douyin_project/handlers/user_info"
-	"github.com/ACking-you/byte_douyin_project/handlers/user_login"
-	"github.com/ACking-you/byte_douyin_project/handlers/video"
-	"github.com/ACking-you/byte_douyin_project/middleware"
-	"github.com/ACking-you/byte_douyin_project/models"
 	"github.com/gin-gonic/gin"
+	"github.com/hakusai22/douyin/handlers/comment"
+	"github.com/hakusai22/douyin/handlers/user_info"
+	"github.com/hakusai22/douyin/handlers/user_login"
+	"github.com/hakusai22/douyin/handlers/video"
+	"github.com/hakusai22/douyin/middleware"
+	"github.com/hakusai22/douyin/models"
 )
 
 func InitDouyinRouter() *gin.Engine {

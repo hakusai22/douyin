@@ -2,8 +2,8 @@ package user_info
 
 import (
 	"errors"
-	"github.com/ACking-you/byte_douyin_project/models"
 	"github.com/gin-gonic/gin"
+	"github.com/hakusai22/douyin/models"
 	"net/http"
 )
 

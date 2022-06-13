@@ -3,8 +3,8 @@ package cache
 import (
 	"context"
 	"fmt"
-	"github.com/ACking-you/byte_douyin_project/config"
 	"github.com/go-redis/redis/v8"
+	"github.com/hakusai22/douyin/config"
 )
 
 // 用户id->被点赞的视频id集合->是否含有该视频id

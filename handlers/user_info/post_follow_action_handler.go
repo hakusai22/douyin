@@ -2,9 +2,9 @@ package user_info
 
 import (
 	"errors"
-	"github.com/ACking-you/byte_douyin_project/models"
-	"github.com/ACking-you/byte_douyin_project/service/user_info"
 	"github.com/gin-gonic/gin"
+	"github.com/hakusai22/douyin/models"
+	"github.com/hakusai22/douyin/service/user_info"
 	"net/http"
 	"strconv"
 )

@@ -1,10 +1,10 @@
 package video
 
 import (
-	"github.com/ACking-you/byte_douyin_project/models"
-	"github.com/ACking-you/byte_douyin_project/service/video"
-	"github.com/ACking-you/byte_douyin_project/util"
 	"github.com/gin-gonic/gin"
+	"github.com/hakusai22/douyin/models"
+	"github.com/hakusai22/douyin/service/video"
+	"github.com/hakusai22/douyin/util"
 	"net/http"
 	"path/filepath"
 )

@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"github.com/ACking-you/byte_douyin_project/config"
-	"github.com/ACking-you/byte_douyin_project/router"
+	"github.com/hakusai22/douyin/config"
+	"github.com/hakusai22/douyin/router"
 )
 
 func main() {

@@ -9,7 +9,7 @@ import "C"
 import (
 	"errors"
 	"fmt"
-	"github.com/ACking-you/byte_douyin_project/config"
+	"github.com/hakusai22/douyin/config"
 	"log"
 	"unsafe"
 )

@@ -1,9 +1,9 @@
 package middleware
 
 import (
-	"github.com/ACking-you/byte_douyin_project/models"
 	"github.com/dgrijalva/jwt-go"
 	"github.com/gin-gonic/gin"
+	"github.com/hakusai22/douyin/models"
 	"net/http"
 	"time"
 )

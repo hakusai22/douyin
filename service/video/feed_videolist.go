@@ -1,8 +1,8 @@
 package video
 
 import (
-	"github.com/ACking-you/byte_douyin_project/models"
-	"github.com/ACking-you/byte_douyin_project/util"
+	"github.com/hakusai22/douyin/models"
+	"github.com/hakusai22/douyin/util"
 	"time"
 )
 

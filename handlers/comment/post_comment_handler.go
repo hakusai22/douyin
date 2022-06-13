@@ -3,9 +3,9 @@ package comment
 import (
 	"errors"
 	"fmt"
-	"github.com/ACking-you/byte_douyin_project/models"
-	"github.com/ACking-you/byte_douyin_project/service/comment"
 	"github.com/gin-gonic/gin"
+	"github.com/hakusai22/douyin/models"
+	"github.com/hakusai22/douyin/service/comment"
 	"net/http"
 	"strconv"
 )

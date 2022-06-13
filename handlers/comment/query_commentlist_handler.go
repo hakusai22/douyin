@@ -2,10 +2,10 @@ package comment
 
 import (
 	"errors"
-	"github.com/ACking-you/byte_douyin_project/handlers/video"
-	"github.com/ACking-you/byte_douyin_project/models"
-	"github.com/ACking-you/byte_douyin_project/service/comment"
 	"github.com/gin-gonic/gin"
+	"github.com/hakusai22/douyin/handlers/video"
+	"github.com/hakusai22/douyin/models"
+	"github.com/hakusai22/douyin/service/comment"
 	"net/http"
 	"strconv"
 )

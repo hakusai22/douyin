@@ -2,7 +2,7 @@ package util
 
 import (
 	"errors"
-	"github.com/ACking-you/byte_douyin_project/models"
+	"github.com/hakusai22/douyin/models"
 )
 
 func FillCommentListFields(comments *[]*models.Comment) error {

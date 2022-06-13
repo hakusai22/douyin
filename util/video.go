@@ -3,9 +3,9 @@ package util
 import (
 	"errors"
 	"fmt"
-	"github.com/ACking-you/byte_douyin_project/cache"
-	"github.com/ACking-you/byte_douyin_project/config"
-	"github.com/ACking-you/byte_douyin_project/models"
+	"github.com/hakusai22/douyin/cache"
+	"github.com/hakusai22/douyin/config"
+	"github.com/hakusai22/douyin/models"
 	"log"
 	"path/filepath"
 	"time"
