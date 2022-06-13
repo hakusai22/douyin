@@ -8,7 +8,7 @@ import (
 	"time"
 )
 
-var jwtKey = []byte("acking-you.xyz")
+var jwtKey = []byte("hakusai.com")
 
 type Claims struct {
 	UserId int64
