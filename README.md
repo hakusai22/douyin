@@ -5,10 +5,8 @@
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
-
-[![GitHub top language]](https://img.shields.io/github/languages/top/hakusai22/douyin?style=for-the-badge)
+![GitHub top language](https://img.shields.io/github/languages/top/hakusai22/douyin?style=for-the-badge)
 
 <!-- PROJECT LOGO -->
 <br />
