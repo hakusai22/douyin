@@ -17,10 +17,10 @@ database = 0
 
 #记录当前服务器的ip和启动端口号，当前服务器的ip用于生成对应的视频链接地址
 [server]
-ip = "192.168.0.104"
+ip = "192.168.8.33"
 port = 8080
 
 # 用于保存资源的路径，以及用于截图工具的路径（截图工具放在lib目录
 [path]
 ffmpeg_path = "/opt/homebrew/bin/ffmpeg"
-static_source_path = "/Users/yinpeng/GoWorkSpace/byte_douyin_project/static"
+static_source_path = "/Users/yinpeng/GoWorkSpace/douyin/static"
