@@ -3,8 +3,7 @@
 <!-- PROJECT SHIELDS -->
 
 [![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/hakusai22/douyin/Docker%20Image%20CI?style=for-the-badge)
 [![MIT License][license-shield]][license-url]
 ![GitHub top language](https://img.shields.io/github/languages/top/hakusai22/douyin?style=for-the-badge)
 
