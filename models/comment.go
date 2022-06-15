@@ -6,6 +6,7 @@ import (
 	"time"
 )
 
+// Comment 评论结构体
 type Comment struct {
 	Id         int64     `json:"id"`
 	UserInfoId int64     `json:"-"` //用于一对多关系的id
@@ -16,17 +17,21 @@ type Comment struct {
 	CreateDate string    `json:"create_date" gorm:"-"`
 }
 
+// CommentDAO dao结构体
 type CommentDAO struct {
 }
 
+// 全局定义CommentDAO
 var (
 	commentDao CommentDAO
 )
 
+// NewCommentDAO 创建dao
 func NewCommentDAO() *CommentDAO {
 	return &commentDao
 }
 
+// AddCommentAndUpdateCount 增加评论更新数量
 func (c *CommentDAO) AddCommentAndUpdateCount(comment *Comment) error {
 	if comment == nil {
 		return errors.New("AddCommentAndUpdateCount comment空指针")
@@ -42,12 +47,12 @@ func (c *CommentDAO) AddCommentAndUpdateCount(comment *Comment) error {
 		if err := tx.Exec("UPDATE videos v SET v.comment_count = v.comment_count+1 WHERE v.id=?", comment.VideoId).Error; err != nil {
 			return err
 		}
-
 		// 返回 nil 提交事务
 		return nil
 	})
 }
 
+// DeleteCommentAndUpdateCountById 删除评论更新数量
 func (c *CommentDAO) DeleteCommentAndUpdateCountById(commentId, videoId int64) error {
 	//执行事务
 	return DB.Transaction(func(tx *gorm.DB) error {
@@ -65,6 +70,7 @@ func (c *CommentDAO) DeleteCommentAndUpdateCountById(commentId, videoId int64) e
 	})
 }
 
+// QueryCommentById 查询评论通过用户id
 func (c *CommentDAO) QueryCommentById(id int64, comment *Comment) error {
 	if comment == nil {
 		return errors.New("QueryCommentById comment 空指针")
@@ -72,6 +78,7 @@ func (c *CommentDAO) QueryCommentById(id int64, comment *Comment) error {
 	return DB.Where("id=?", id).First(comment).Error
 }
 
+// QueryCommentListByVideoId 查询评论列表通过视频id
 func (c *CommentDAO) QueryCommentListByVideoId(videoId int64, comments *[]*Comment) error {
 	if comments == nil {
 		return errors.New("QueryCommentListByVideoId comments空指针")
