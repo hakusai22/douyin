@@ -7,11 +7,13 @@ import (
 	"sync"
 )
 
+//全局错误
 var (
 	ErrIvdPtr        = errors.New("空指针错误")
 	ErrEmptyUserList = errors.New("用户列表为空")
 )
 
+// UserInfo 用户信息结构体
 type UserInfo struct {
 	Id            int64       `json:"id" gorm:"id,omitempty"`
 	Name          string      `json:"name" gorm:"name,omitempty"`
@@ -25,14 +27,17 @@ type UserInfo struct {
 	Comments      []*Comment  `json:"-"`                                     //用户与评论的一对多
 }
 
+// UserInfoDAO 用户dao
 type UserInfoDAO struct {
 }
 
+// 全局dao  单例 (它能够让函数方法只执行一次)
 var (
 	userInfoDAO  *UserInfoDAO
 	userInfoOnce sync.Once
 )
 
+// NewUserInfoDAO 创建用户dao函数
 func NewUserInfoDAO() *UserInfoDAO {
 	userInfoOnce.Do(func() {
 		userInfoDAO = new(UserInfoDAO)
@@ -40,6 +45,7 @@ func NewUserInfoDAO() *UserInfoDAO {
 	return userInfoDAO
 }
 
+// QueryUserInfoById 查询用户信息通过id
 func (u *UserInfoDAO) QueryUserInfoById(userId int64, userinfo *UserInfo) error {
 	if userinfo == nil {
 		return ErrIvdPtr
@@ -53,6 +59,7 @@ func (u *UserInfoDAO) QueryUserInfoById(userId int64, userinfo *UserInfo) error 
 	return nil
 }
 
+// AddUserInfo 添加用户并返回用户信息
 func (u *UserInfoDAO) AddUserInfo(userinfo *UserInfo) error {
 	if userinfo == nil {
 		return ErrIvdPtr
@@ -60,6 +67,7 @@ func (u *UserInfoDAO) AddUserInfo(userinfo *UserInfo) error {
 	return DB.Create(userinfo).Error
 }
 
+// IsUserExistById 判断用户是否存在
 func (u *UserInfoDAO) IsUserExistById(id int64) bool {
 	var userinfo UserInfo
 	if err := DB.Where("id=?", id).Select("id").First(&userinfo).Error; err != nil {
@@ -70,6 +78,8 @@ func (u *UserInfoDAO) IsUserExistById(id int64) bool {
 	}
 	return true
 }
+
+// AddUserFollow 添加用户关注
 func (u *UserInfoDAO) AddUserFollow(userId, userToId int64) error {
 	return DB.Transaction(func(tx *gorm.DB) error {
 		if err := tx.Exec("UPDATE user_infos SET follow_count=follow_count+1 WHERE id = ?", userId).Error; err != nil {
@@ -85,6 +95,7 @@ func (u *UserInfoDAO) AddUserFollow(userId, userToId int64) error {
 	})
 }
 
+// CancelUserFollow 取消用户关注
 func (u *UserInfoDAO) CancelUserFollow(userId, userToId int64) error {
 	return DB.Transaction(func(tx *gorm.DB) error {
 		if err := tx.Exec("UPDATE user_infos SET follow_count=follow_count-1 WHERE id = ? AND follow_count>0", userId).Error; err != nil {
@@ -100,6 +111,7 @@ func (u *UserInfoDAO) CancelUserFollow(userId, userToId int64) error {
 	})
 }
 
+// GetFollowListByUserId 通过用户id获取到关注列表
 func (u *UserInfoDAO) GetFollowListByUserId(userId int64, userList *[]*UserInfo) error {
 	if userList == nil {
 		return ErrIvdPtr
@@ -114,6 +126,7 @@ func (u *UserInfoDAO) GetFollowListByUserId(userId int64, userList *[]*UserInfo)
 	return nil
 }
 
+// GetFollowerListByUserId 按用户 ID 获取粉丝列表
 func (u *UserInfoDAO) GetFollowerListByUserId(userId int64, userList *[]*UserInfo) error {
 	if userList == nil {
 		return ErrIvdPtr
