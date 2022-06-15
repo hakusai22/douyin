@@ -8,6 +8,7 @@ import (
 
 var DB *gorm.DB
 
+// InitDB 初始化DB
 func InitDB() {
 	var err error
 	DB, err = gorm.Open(mysql.Open(config.DBConnectString()), &gorm.Config{
