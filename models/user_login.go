@@ -6,6 +6,7 @@ import (
 )
 
 // UserLogin 用户登录表，和UserInfo属于一对一关系
+// UserLogin => user_logins 首字母小写+复数+下划线 [模型名和表名的映射关系]
 type UserLogin struct {
 	Id         int64 `gorm:"primary_key"`
 	UserInfoId int64

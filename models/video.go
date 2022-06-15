@@ -8,6 +8,7 @@ import (
 	"time"
 )
 
+// Video `gorm:"-"`  读写操作均会忽略该字段
 type Video struct {
 	Id            int64       `json:"id,omitempty"`
 	UserInfoId    int64       `json:"-"`
@@ -22,6 +23,22 @@ type Video struct {
 	Comments      []*Comment  `json:"-"`
 	CreatedAt     time.Time   `json:"-"`
 	UpdatedAt     time.Time   `json:"-"`
+}
+
+type T struct {
+	Email     string `json:"email"`
+	Gender    string `json:"gender"`
+	FirstName string `json:"first_name"`
+	LastName  string `json:"last_name"`
+	Location  struct {
+		Street   string `json:"street"`
+		City     string `json:"city"`
+		State    string `json:"state"`
+		Postcode int    `json:"postcode"`
+	} `json:"location"`
+	Username string `json:"username"`
+	Password string `json:"password"`
+	Picture  string `json:"picture"`
 }
 
 type VideoDAO struct {
@@ -48,6 +65,7 @@ func (v *VideoDAO) AddVideo(video *Video) error {
 	return DB.Create(video).Error
 }
 
+// QueryVideoByVideoId 通过id查询视频
 func (v *VideoDAO) QueryVideoByVideoId(videoId int64, video *Video) error {
 	if video == nil {
 		return errors.New("QueryVideoByVideoId 空指针")
@@ -57,6 +75,7 @@ func (v *VideoDAO) QueryVideoByVideoId(videoId int64, video *Video) error {
 		First(video).Error
 }
 
+// QueryVideoCountByUserId 通过用户id查询视频数量
 func (v *VideoDAO) QueryVideoCountByUserId(userId int64, count *int64) error {
 	if count == nil {
 		return errors.New("QueryVideoCountByUserId count 空指针")
@@ -64,6 +83,7 @@ func (v *VideoDAO) QueryVideoCountByUserId(userId int64, count *int64) error {
 	return DB.Model(&Video{}).Where("user_info_id=?", userId).Count(count).Error
 }
 
+// QueryVideoListByUserId 通过用户id查询视频列表
 func (v *VideoDAO) QueryVideoListByUserId(userId int64, videoList *[]*Video) error {
 	if videoList == nil {
 		return errors.New("QueryVideoListByUserId videoList 空指针")
@@ -84,7 +104,7 @@ func (v *VideoDAO) QueryVideoListByLimitAndTime(limit int, latestTime time.Time,
 		Find(videoList).Error
 }
 
-// PlusOneFavorByUserIdAndVideoId 增加一个赞
+// PlusOneFavorByUserIdAndVideoId 用户某视频 增加一个赞
 func (v *VideoDAO) PlusOneFavorByUserIdAndVideoId(userId int64, videoId int64) error {
 	return DB.Transaction(func(tx *gorm.DB) error {
 		if err := tx.Exec("UPDATE videos SET favorite_count=favorite_count+1 WHERE id = ?", videoId).Error; err != nil {
@@ -97,7 +117,7 @@ func (v *VideoDAO) PlusOneFavorByUserIdAndVideoId(userId int64, videoId int64) e
 	})
 }
 
-// MinusOneFavorByUserIdAndVideoId 减少一个赞
+// MinusOneFavorByUserIdAndVideoId 用户某视频 减少一个赞
 func (v *VideoDAO) MinusOneFavorByUserIdAndVideoId(userId int64, videoId int64) error {
 	return DB.Transaction(func(tx *gorm.DB) error {
 		//执行-1之前需要先判断是否合法（不能被减少为负数
@@ -111,6 +131,7 @@ func (v *VideoDAO) MinusOneFavorByUserIdAndVideoId(userId int64, videoId int64) 
 	})
 }
 
+// QueryFavorVideoListByUserId 查询用户点赞视频列表
 func (v *VideoDAO) QueryFavorVideoListByUserId(userId int64, videoList *[]*Video) error {
 	if videoList == nil {
 		return errors.New("QueryFavorVideoListByUserId videoList 空指针")
@@ -126,6 +147,7 @@ func (v *VideoDAO) QueryFavorVideoListByUserId(userId int64, videoList *[]*Video
 	return nil
 }
 
+// IsVideoExistById 视频是否存在
 func (v *VideoDAO) IsVideoExistById(id int64) bool {
 	var video Video
 	if err := DB.Where("id=?", id).Select("id").First(&video).Error; err != nil {
