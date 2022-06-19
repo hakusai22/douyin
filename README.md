@@ -19,9 +19,6 @@
     </a>
     <h3 align="center">字节青训营抖音项目</h3>
   <p align="center">
-    基于架构 ver 0.0.1
-    <br />
-    <br />
     ·
     <a href="https://github.com/hakusai22/douyin/issues">报告Bug</a>
     ·
