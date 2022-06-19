@@ -2,7 +2,7 @@ package user_login
 
 import (
 	"errors"
-	"github.com/hakusai22/douyin/middleware"
+	"github.com/hakusai22/douyin/middlewares"
 	"github.com/hakusai22/douyin/models"
 )
 
@@ -76,7 +76,7 @@ func (q *QueryUserLoginFlow) prepareData() error {
 	q.userid = login.UserInfoId
 
 	//准备颁发token
-	token, err := middleware.ReleaseToken(login)
+	token, err := middlewares.ReleaseToken(login)
 	if err != nil {
 		return err
 	}

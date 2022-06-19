@@ -82,7 +82,7 @@ filetree
 │  ├─cache（缓存）
 │  ├─config（配置文件）
 │  ├─handlers（于handlers层）
-│  ├─middleware（中间件）
+│  ├─middlewares（中间件）
 │  ├─models（实体类）
 │  └─router（接口path访问路口）
 │  └─service（操作数据库）

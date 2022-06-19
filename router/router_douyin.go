@@ -6,7 +6,7 @@ import (
 	"github.com/hakusai22/douyin/handlers/user_info"
 	"github.com/hakusai22/douyin/handlers/user_login"
 	"github.com/hakusai22/douyin/handlers/video"
-	"github.com/hakusai22/douyin/middleware"
+	"github.com/hakusai22/douyin/middlewares"
 	"github.com/hakusai22/douyin/models"
 )
 
@@ -27,32 +27,32 @@ func InitDouyinRouter() *gin.Engine {
 	//视频推荐
 	baseGroup.GET("/feed/", video.FeedVideoListHandler)
 	//用户信息
-	baseGroup.GET("/user/", middleware.JWTMiddleWare(), user_info.UserInfoHandler)
+	baseGroup.GET("/user/", middlewares.JWTMiddleWare(), user_info.UserInfoHandler)
 	//登录
-	baseGroup.POST("/user/login/", middleware.SHAMiddleWare(), user_login.UserLoginHandler)
+	baseGroup.POST("/user/login/", middlewares.SHAMiddleWare(), user_login.UserLoginHandler)
 	//注册
-	baseGroup.POST("/user/register/", middleware.SHAMiddleWare(), user_login.UserRegisterHandler)
+	baseGroup.POST("/user/register/", middlewares.SHAMiddleWare(), user_login.UserRegisterHandler)
 	//发布视频
-	baseGroup.POST("/publish/action/", middleware.JWTMiddleWare(), video.PublishVideoHandler)
+	baseGroup.POST("/publish/action/", middlewares.JWTMiddleWare(), video.PublishVideoHandler)
 	//视频列表
-	baseGroup.GET("/publish/list/", middleware.JWTMiddleWare(), video.QueryVideoListHandler)
+	baseGroup.GET("/publish/list/", middlewares.JWTMiddleWare(), video.QueryVideoListHandler)
 
 	//extend 1 扩展1
 	//进行点赞操作
-	baseGroup.POST("/favorite/action/", middleware.JWTMiddleWare(), video.PostFavorHandler)
+	baseGroup.POST("/favorite/action/", middlewares.JWTMiddleWare(), video.PostFavorHandler)
 	// 点赞列表
-	baseGroup.GET("/favorite/list/", middleware.JWTMiddleWare(), video.QueryFavorVideoListHandler)
+	baseGroup.GET("/favorite/list/", middlewares.JWTMiddleWare(), video.QueryFavorVideoListHandler)
 	// 评论
-	baseGroup.POST("/comment/action/", middleware.JWTMiddleWare(), comment.PostCommentHandler)
+	baseGroup.POST("/comment/action/", middlewares.JWTMiddleWare(), comment.PostCommentHandler)
 	//评论列表
-	baseGroup.GET("/comment/list/", middleware.JWTMiddleWare(), comment.QueryCommentListHandler)
+	baseGroup.GET("/comment/list/", middlewares.JWTMiddleWare(), comment.QueryCommentListHandler)
 
 	//extend 2 扩展2
 	//进行关注操作
-	baseGroup.POST("/relation/action/", middleware.JWTMiddleWare(), user_info.PostFollowActionHandler)
+	baseGroup.POST("/relation/action/", middlewares.JWTMiddleWare(), user_info.PostFollowActionHandler)
 	//关注的列表
-	baseGroup.GET("/relation/follow/list/", middleware.JWTMiddleWare(), user_info.QueryFollowListHandler)
+	baseGroup.GET("/relation/follow/list/", middlewares.JWTMiddleWare(), user_info.QueryFollowListHandler)
 	//粉丝列表
-	baseGroup.GET("/relation/follower/list/", middleware.JWTMiddleWare(), user_info.QueryFollowerHandler)
+	baseGroup.GET("/relation/follower/list/", middlewares.JWTMiddleWare(), user_info.QueryFollowerHandler)
 	return r
 }

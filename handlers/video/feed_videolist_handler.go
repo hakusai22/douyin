@@ -3,7 +3,7 @@ package video
 import (
 	"errors"
 	"github.com/gin-gonic/gin"
-	"github.com/hakusai22/douyin/middleware"
+	"github.com/hakusai22/douyin/middlewares"
 	"github.com/hakusai22/douyin/models"
 	"github.com/hakusai22/douyin/service/video"
 	"net/http"
@@ -62,7 +62,7 @@ func (p *ProxyFeedVideoList) DoNoToken() error {
 // DoHasToken 如果是登录状态，则生成UserId字段
 func (p *ProxyFeedVideoList) DoHasToken(token string) error {
 	//解析成功
-	if claim, ok := middleware.ParseToken(token); ok {
+	if claim, ok := middlewares.ParseToken(token); ok {
 		//token超时
 		if time.Now().Unix() > claim.ExpiresAt {
 			return errors.New("token超时")

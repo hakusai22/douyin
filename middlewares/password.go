@@ -1,4 +1,4 @@
-package middleware
+package middlewares
 
 import (
 	"crypto/sha1"
