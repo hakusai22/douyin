@@ -74,7 +74,7 @@ eg:
 filetree
 ├─douyin（公共基础库，封装一些通用的逻辑）
 │  ├─cache（缓存）
-│  ├─config（配置）
+│  ├─config（配置文件）
 │  ├─handlers（于handlers层）
 │  ├─middleware（中间件）
 │  ├─models（实体类）
@@ -115,9 +115,6 @@ filetree
 
 该项目使用Git进行版本管理。您可以在 repository 参看当前可用版本。
 
-![img.png](https://fastly.jsdelivr.net/gh/hakusai22/douyin/image/img1.png)
-
-![img.png](https://fastly.jsdelivr.net/gh/hakusai22/douyin/image/img2.png)
 
 
 ### 作者
@@ -134,3 +131,7 @@ hakusai22@qq.com
 
 
 ### 成果演示
+
+![img.png](https://fastly.jsdelivr.net/gh/hakusai22/douyin/image/img1.png)
+
+![img.png](https://fastly.jsdelivr.net/gh/hakusai22/douyin/image/img2.png)
