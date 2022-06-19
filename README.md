@@ -43,6 +43,7 @@
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/xxxx
 
+![img.png](https://fastly.jsdelivr.net/gh/hakusai22/douyin/image/img3.png)
 
 
 ## 目录
@@ -143,3 +144,4 @@ hakusai22@qq.com
 ![img.png](https://fastly.jsdelivr.net/gh/hakusai22/douyin/image/img1.png)
 
 ![img.png](https://fastly.jsdelivr.net/gh/hakusai22/douyin/image/img2.png)
+![img.png](https://fastly.jsdelivr.net/gh/hakusai22/douyin/image/img3.png)
