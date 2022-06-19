@@ -14,6 +14,7 @@ type UserLoginResponse struct {
 
 func UserLoginHandler(c *gin.Context) {
 	username := c.Query("username")
+	//从context中获取加密的密码
 	raw, _ := c.Get("password")
 	password, ok := raw.(string)
 	if !ok {
@@ -24,6 +25,7 @@ func UserLoginHandler(c *gin.Context) {
 			},
 		})
 	}
+	//service 方法
 	userLoginResponse, err := user_login.QueryUserLogin(username, password)
 
 	//用户不存在返回对应的错误

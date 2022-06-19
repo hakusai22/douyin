@@ -6,6 +6,7 @@ import (
 	"github.com/hakusai22/douyin/models"
 )
 
+//常量
 const (
 	MaxUsernameLength = 100
 	MaxPasswordLength = 20

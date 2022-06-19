@@ -8,7 +8,8 @@ import (
 	"time"
 )
 
-var jwtKey = []byte("hakusai.com")
+// jwt密钥
+var jwtKey = []byte("0xCAFEBABY")
 
 type Claims struct {
 	UserId int64
@@ -17,16 +18,18 @@ type Claims struct {
 
 // ReleaseToken 颁发token
 func ReleaseToken(user models.UserLogin) (string, error) {
+	//7天有效时间
 	expirationTime := time.Now().Add(7 * 24 * time.Hour)
 	claims := &Claims{
 		UserId: user.UserInfoId,
 		StandardClaims: jwt.StandardClaims{
 			ExpiresAt: expirationTime.Unix(),
 			IssuedAt:  time.Now().Unix(),
-			Issuer:    "douyin_pro_131",
-			Subject:   "L_B__",
+			Issuer:    "hakusai22",
+			Subject:   "douyin",
 		}}
 
+	// HS256加密 claims
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
 	tokenString, err := token.SignedString(jwtKey)
 	if err != nil {
@@ -35,7 +38,7 @@ func ReleaseToken(user models.UserLogin) (string, error) {
 	return tokenString, nil
 }
 
-// ParseToken 解析token
+// ParseToken 解析token 返回Claims
 func ParseToken(tokenString string) (*Claims, bool) {
 	token, _ := jwt.ParseWithClaims(tokenString, &Claims{}, func(token *jwt.Token) (interface{}, error) {
 		return jwtKey, nil
@@ -61,7 +64,7 @@ func JWTMiddleWare() gin.HandlerFunc {
 		}
 		//用户不存在
 		if tokenStr == "" {
-			c.JSON(http.StatusOK, models.CommonResponse{StatusCode: 401, StatusMsg: "用户不存在"})
+			c.JSON(http.StatusOK, models.CommonResponse{StatusCode: 401, StatusMsg: "该用户不存在"})
 			c.Abort() //阻止执行
 			return
 		}
