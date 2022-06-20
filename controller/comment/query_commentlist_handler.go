@@ -3,7 +3,7 @@ package comment
 import (
 	"errors"
 	"github.com/gin-gonic/gin"
-	"github.com/hakusai22/douyin/handlers/video"
+	"github.com/hakusai22/douyin/controller/video"
 	"github.com/hakusai22/douyin/models"
 	"github.com/hakusai22/douyin/service/comment"
 	"net/http"

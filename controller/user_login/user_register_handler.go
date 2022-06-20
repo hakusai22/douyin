@@ -7,6 +7,7 @@ import (
 	"net/http"
 )
 
+// UserRegisterResponse 用户注册response 用户id+token
 type UserRegisterResponse struct {
 	models.CommonResponse
 	*user_login.LoginResponse
@@ -25,6 +26,7 @@ func UserRegisterHandler(c *gin.Context) {
 		})
 		return
 	}
+	//调用service方法
 	registerResponse, err := user_login.PostUserLogin(username, password)
 
 	if err != nil {

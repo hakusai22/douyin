@@ -2,10 +2,10 @@ package router
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/hakusai22/douyin/handlers/comment"
-	"github.com/hakusai22/douyin/handlers/user_info"
-	"github.com/hakusai22/douyin/handlers/user_login"
-	"github.com/hakusai22/douyin/handlers/video"
+	"github.com/hakusai22/douyin/controller/comment"
+	"github.com/hakusai22/douyin/controller/user_info"
+	"github.com/hakusai22/douyin/controller/user_login"
+	"github.com/hakusai22/douyin/controller/video"
 	"github.com/hakusai22/douyin/middlewares"
 	"github.com/hakusai22/douyin/models"
 )

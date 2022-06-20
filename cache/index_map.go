@@ -8,7 +8,6 @@ import (
 )
 
 // 用户id->被点赞的视频id集合->是否含有该视频id
-
 var ctx = context.Background()
 var rdb *redis.Client
 

@@ -81,7 +81,7 @@ filetree
 ├─douyin（公共基础库，封装一些通用的逻辑）
 │  ├─cache（缓存）
 │  ├─config（配置文件）
-│  ├─handlers（于handlers层）
+│  ├─controller（于handlers层）
 │  ├─middlewares（中间件）
 │  ├─models（实体类）
 │  └─router（接口path访问路口）
@@ -91,6 +91,8 @@ filetree
 ```
 
 ### 开发的架构
+
+![img.png](https://fastly.jsdelivr.net/gh/hakusai22/douyin/image/framework.png)
 
 ### 部署
 
