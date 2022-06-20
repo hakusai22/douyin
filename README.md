@@ -88,6 +88,7 @@ filetree
 │  └─service（操作数据库）
 │  └─static（存储视频图片静态目录）
 │  └─util（工具类）
+│  └─image（图床）
 ```
 
 ### 开发的架构
