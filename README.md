@@ -72,7 +72,7 @@
 
 1. 基于《[接口文档在线分享](https://www.apifox.cn/apidoc/shared-7f20ed46-edeb-4dff-a35d-5b899855b8bf)[- Apifox](https://www.apifox.cn/apidoc/shared-7f20ed46-edeb-4dff-a35d-5b899855b8bf)》提供的接口进行开发，使用《[极简抖音](https://bytedance.feishu.cn/docs/doccnM9KkBAdyDhg8qaeGlIz7S7)[App使用说明 - 青训营版](https://bytedance.feishu.cn/docs/doccnM9KkBAdyDhg8qaeGlIz7S7) 》提供的APK进行Demo测试， **功能完整实现** ，前端接口匹配良好。
 
-2. 代码结构采用 (HTTP API 层 + RPC Service 层+Dal 层) 项目 **结构清晰** ，代码 **符合规范**
+2. 代码结构采用 (HTTP API 层 + RPC Service 层+Dao 层) 项目 **结构清晰** ，代码 **符合规范**
 
 3. 使用 **JWT** 进行用户token的校验
 
