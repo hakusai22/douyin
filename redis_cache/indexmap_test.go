@@ -1,4 +1,4 @@
-package cache
+package redis_cache
 
 import (
 	"fmt"

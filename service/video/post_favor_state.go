@@ -2,8 +2,8 @@ package video
 
 import (
 	"errors"
-	"github.com/hakusai22/douyin/cache"
 	"github.com/hakusai22/douyin/models"
+	"github.com/hakusai22/douyin/redis_cache"
 )
 
 //常量
@@ -55,7 +55,7 @@ func (p *PostFavorStateFlow) PlusOperation() error {
 		return errors.New("不要重复点赞")
 	}
 	//对应的用户是否点赞的映射状态更新
-	cache.NewProxyIndexMap().UpdateVideoFavorState(p.userId, p.videoId, true)
+	redis_cache.NewProxyIndexMap().UpdateVideoFavorState(p.userId, p.videoId, true)
 	return nil
 }
 
@@ -67,7 +67,7 @@ func (p *PostFavorStateFlow) MinusOperation() error {
 		return errors.New("点赞数目已经为0")
 	}
 	//对应的用户是否点赞的映射状态更新
-	cache.NewProxyIndexMap().UpdateVideoFavorState(p.userId, p.videoId, false)
+	redis_cache.NewProxyIndexMap().UpdateVideoFavorState(p.userId, p.videoId, false)
 	return nil
 }
 

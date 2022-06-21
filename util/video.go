@@ -3,9 +3,9 @@ package util
 import (
 	"errors"
 	"fmt"
-	"github.com/hakusai22/douyin/cache"
 	"github.com/hakusai22/douyin/config"
 	"github.com/hakusai22/douyin/models"
+	"github.com/hakusai22/douyin/redis_cache"
 	"log"
 	"path/filepath"
 	"time"
@@ -34,7 +34,7 @@ func FillVideoListFields(userId int64, videos *[]*models.Video) (*time.Time, err
 		return nil, errors.New("util.FillVideoListFields videos为空")
 	}
 	dao := models.NewUserInfoDAO()
-	p := cache.NewProxyIndexMap()
+	p := redis_cache.NewProxyIndexMap()
 
 	latestTime := (*videos)[size-1].CreatedAt //获取最近的投稿时间
 	//添加作者信息，以及is_follow状态

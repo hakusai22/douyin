@@ -1,5 +1,5 @@
 # douyin
-
+基于 Gorm + Gin HTTP服务完成的第三届字节跳动青训营-极简抖音后端项目
 <!-- PROJECT SHIELDS -->
 
 [![Contributors][contributors-shield]][contributors-url]
@@ -49,6 +49,7 @@
     - [开发前的配置要求](#开发前的配置要求)
     - [安装步骤](#安装步骤)
 - [文件目录说明](#文件目录说明)
+- [项目特点](#项目特点)
 - [开发的架构](#开发的架构)
 - [部署](#部署)
 - [使用到的框架](#使用到的框架)
@@ -66,6 +67,19 @@
 
 ###### **安装步骤**
 
+
+### 项目特点
+
+1. 基于《[接口文档在线分享](https://www.apifox.cn/apidoc/shared-7f20ed46-edeb-4dff-a35d-5b899855b8bf)[- Apifox](https://www.apifox.cn/apidoc/shared-7f20ed46-edeb-4dff-a35d-5b899855b8bf)》提供的接口进行开发，使用《[极简抖音](https://bytedance.feishu.cn/docs/doccnM9KkBAdyDhg8qaeGlIz7S7)[App使用说明 - 青训营版](https://bytedance.feishu.cn/docs/doccnM9KkBAdyDhg8qaeGlIz7S7) 》提供的APK进行Demo测试， **功能完整实现** ，前端接口匹配良好。
+
+2. 代码结构采用 (HTTP API 层 + RPC Service 层+Dal 层) 项目 **结构清晰** ，代码 **符合规范**
+
+3. 使用 **JWT** 进行用户token的校验
+
+4. 使用 **Gorm** 对 MySQL 进行 ORM 操作；
+
+5. 数据库表建立了索引和外键约束，对于具有关联性的操作一旦出错立刻回滚，保证数据一致性和安全性
+
 ```sh
 git clone https://github.com/haksuai22/douyin.git
 go mod tidy
@@ -79,7 +93,7 @@ eg:
 ```shell
 filetree
 ├─douyin（公共基础库，封装一些通用的逻辑）
-│  ├─cache（缓存）
+│  ├─redis_cache（缓存）
 │  ├─config（配置文件）
 │  ├─controller（于handlers层）
 │  ├─middlewares（中间件）
@@ -97,12 +111,15 @@ filetree
 
 ### 部署
 
-### 使用到的技术
-
+### 使用到的框架
 - [Gin Web Framework](https://github.com/gin-gonic/gin)
 - [Redis](https://redis.io/)
 - [MySQL](https://www.mysql.com/)
-- - ......
+- [Gorm](https://gorm.io/)
+- [JWT](https://github.com/dgrijalva/jwt-go)
+- [ffmpeg](https://github.com/FFmpeg/FFmpeg)
+- [toml](https://github.com/BurntSushi/toml)
+- ......
 ### 贡献者
 
 请阅读 **CONTRIBUTING.md** 查阅为该项目做出贡献的开发者。

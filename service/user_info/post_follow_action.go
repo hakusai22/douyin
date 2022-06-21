@@ -2,8 +2,8 @@ package user_info
 
 import (
 	"errors"
-	"github.com/hakusai22/douyin/cache"
 	"github.com/hakusai22/douyin/models"
+	"github.com/hakusai22/douyin/redis_cache"
 )
 
 const (
@@ -63,10 +63,10 @@ func (p *PostFollowActionFlow) publish() error {
 	case FOLLOW:
 		err = userDAO.AddUserFollow(p.userId, p.userToId)
 		//更新redis的关注信息
-		cache.NewProxyIndexMap().UpdateUserRelation(p.userId, p.userToId, true)
+		redis_cache.NewProxyIndexMap().UpdateUserRelation(p.userId, p.userToId, true)
 	case CANCEL:
 		err = userDAO.CancelUserFollow(p.userId, p.userToId)
-		cache.NewProxyIndexMap().UpdateUserRelation(p.userId, p.userToId, false)
+		redis_cache.NewProxyIndexMap().UpdateUserRelation(p.userId, p.userToId, false)
 	default:
 		return ErrIvdAct
 	}

@@ -1,8 +1,8 @@
 package user_info
 
 import (
-	"github.com/hakusai22/douyin/cache"
 	"github.com/hakusai22/douyin/models"
+	"github.com/hakusai22/douyin/redis_cache"
 )
 
 type FollowerList struct {
@@ -52,7 +52,7 @@ func (q *QueryFollowerListFlow) prepareData() error {
 	}
 	//填充is_follow字段
 	for _, v := range q.userList {
-		v.IsFollow = cache.NewProxyIndexMap().GetUserRelation(q.userId, v.Id)
+		v.IsFollow = redis_cache.NewProxyIndexMap().GetUserRelation(q.userId, v.Id)
 	}
 	return nil
 }

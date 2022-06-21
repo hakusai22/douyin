@@ -2,8 +2,8 @@ package video
 
 import (
 	"errors"
-	"github.com/hakusai22/douyin/cache"
 	"github.com/hakusai22/douyin/models"
+	"github.com/hakusai22/douyin/redis_cache"
 )
 
 //List 视频集合返回
@@ -53,7 +53,7 @@ func (q *QueryVideoListByUserIdFlow) packData() error {
 	//用户信息查询
 	var userInfo models.UserInfo
 	err = models.NewUserInfoDAO().QueryUserInfoById(q.userId, &userInfo)
-	p := cache.NewProxyIndexMap()
+	p := redis_cache.NewProxyIndexMap()
 	if err != nil {
 		return err
 	}
