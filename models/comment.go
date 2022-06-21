@@ -75,14 +75,16 @@ func (c *CommentDAO) QueryCommentById(id int64, comment *Comment) error {
 	if comment == nil {
 		return errors.New("QueryCommentById comment 空指针")
 	}
+	// 查出 给 comment *Comment赋值
 	return DB.Where("id=?", id).First(comment).Error
 }
 
-// QueryCommentListByVideoId 查询评论列表通过视频id
+// QueryCommentListByVideoId 查询评论列表通过视频id    comments *[]*Comment 传入一个空的对面进行 进行赋值
 func (c *CommentDAO) QueryCommentListByVideoId(videoId int64, comments *[]*Comment) error {
 	if comments == nil {
 		return errors.New("QueryCommentListByVideoId comments空指针")
 	}
+	//查出赋值
 	if err := DB.Model(&Comment{}).Where("video_id=?", videoId).Find(comments).Error; err != nil {
 		return err
 	}

@@ -12,30 +12,33 @@ const (
 	DELETE = 2
 )
 
+// Response 评论结构响应体
 type Response struct {
 	MyComment *models.Comment `json:"comment"`
 }
 
+// PostComment 封装数据 并调用do
 func PostComment(userId int64, videoId int64, commentId int64, actionType int64, commentText string) (*Response, error) {
 	return NewPostCommentFlow(userId, videoId, commentId, actionType, commentText).Do()
 }
 
+// PostCommentFlow 提交评论流结构体
 type PostCommentFlow struct {
 	userId      int64
 	videoId     int64
 	commentId   int64
 	actionType  int64
 	commentText string
-
-	comment *models.Comment
-
+	comment     *models.Comment
 	*Response
 }
 
+// NewPostCommentFlow 封装
 func NewPostCommentFlow(userId int64, videoId int64, commentId int64, actionType int64, commentText string) *PostCommentFlow {
 	return &PostCommentFlow{userId: userId, videoId: videoId, commentId: commentId, actionType: actionType, commentText: commentText}
 }
 
+//Do 三部曲
 func (p *PostCommentFlow) Do() (*Response, error) {
 	var err error
 	if err = p.checkNum(); err != nil {
