@@ -16,6 +16,7 @@ func UserLoginHandler(c *gin.Context) {
 	username := c.Query("username")
 	//从context中获取加密的密码
 	raw, _ := c.Get("password")
+	//判断是否是字符串
 	password, ok := raw.(string)
 	//ok=false
 	if !ok {
@@ -26,10 +27,9 @@ func UserLoginHandler(c *gin.Context) {
 			},
 		})
 	}
-	// 调用service 方法
+	// 调用service 方法 查询信息
 	userLoginResponse, err := user_login.QueryUserLogin(username, password)
-
-	//用户不存在返回对应的错误
+	//用户存在返回对应的错误
 	if err != nil {
 		c.JSON(http.StatusOK, UserLoginResponse{
 			CommonResponse: models.CommonResponse{StatusCode: 1, StatusMsg: err.Error()},

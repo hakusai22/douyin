@@ -23,6 +23,7 @@ func QueryUserLogin(username, password string) (*LoginResponse, error) {
 	return NewQueryUserLoginFlow(username, password).Do()
 }
 
+// NewQueryUserLoginFlow 封装数据
 func NewQueryUserLoginFlow(username, password string) *QueryUserLoginFlow {
 	return &QueryUserLoginFlow{username: username, password: password}
 }
@@ -30,10 +31,9 @@ func NewQueryUserLoginFlow(username, password string) *QueryUserLoginFlow {
 type QueryUserLoginFlow struct {
 	username string
 	password string
-
-	data   *LoginResponse
-	userid int64
-	token  string
+	data     *LoginResponse
+	userid   int64
+	token    string
 }
 
 func (q *QueryUserLoginFlow) Do() (*LoginResponse, error) {
