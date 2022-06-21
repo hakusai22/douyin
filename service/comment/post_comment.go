@@ -63,7 +63,7 @@ func (p *PostCommentFlow) CreateComment() (*models.Comment, error) {
 
 // DeleteComment 删除评论
 func (p *PostCommentFlow) DeleteComment() (*models.Comment, error) {
-	//获取comment
+	//定义一个 comment
 	var comment models.Comment
 	err := models.NewCommentDAO().QueryCommentById(p.commentId, &comment)
 	if err != nil {
@@ -74,9 +74,11 @@ func (p *PostCommentFlow) DeleteComment() (*models.Comment, error) {
 	if err != nil {
 		return nil, err
 	}
+	//&引用 返回用户的评论
 	return &comment, nil
 }
 
+//检查参数是否异常
 func (p *PostCommentFlow) checkNum() error {
 	if !models.NewUserInfoDAO().IsUserExistById(p.userId) {
 		return fmt.Errorf("用户%d不存在", p.userId)
@@ -90,6 +92,7 @@ func (p *PostCommentFlow) checkNum() error {
 	return nil
 }
 
+//根据actionType调用不同的情况
 func (p *PostCommentFlow) prepareData() error {
 	var err error
 	switch p.actionType {
@@ -103,6 +106,7 @@ func (p *PostCommentFlow) prepareData() error {
 	return err
 }
 
+// 打包数据
 func (p *PostCommentFlow) packData() error {
 	//填充字段
 	userInfo := models.UserInfo{}

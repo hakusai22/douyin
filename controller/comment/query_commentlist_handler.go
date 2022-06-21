@@ -10,11 +10,13 @@ import (
 	"strconv"
 )
 
+// ListResponse 查询评论列表
 type ListResponse struct {
 	models.CommonResponse
 	*comment.List
 }
 
+// QueryCommentListHandler handler函数
 func QueryCommentListHandler(c *gin.Context) {
 	NewProxyCommentListHandler(c).Do()
 }
@@ -26,6 +28,7 @@ type ProxyCommentListHandler struct {
 	userId  int64
 }
 
+// NewProxyCommentListHandler context封装一层
 func NewProxyCommentListHandler(context *gin.Context) *ProxyCommentListHandler {
 	return &ProxyCommentListHandler{Context: context}
 }
@@ -36,14 +39,12 @@ func (p *ProxyCommentListHandler) Do() {
 		p.SendError(err.Error())
 		return
 	}
-
-	//正式调用
+	//调用service 查出list
 	commentList, err := comment.QueryCommentList(p.userId, p.videoId)
 	if err != nil {
 		p.SendError(err.Error())
 		return
 	}
-
 	//成功返回
 	p.SendOk(commentList)
 }
@@ -55,14 +56,12 @@ func (p *ProxyCommentListHandler) parseNum() error {
 		return errors.New("userId解析出错")
 	}
 	p.userId = userId
-
 	rawVideoId := p.Query("video_id")
 	videoId, err := strconv.ParseInt(rawVideoId, 10, 64)
 	if err != nil {
 		return err
 	}
 	p.videoId = videoId
-
 	return nil
 }
 

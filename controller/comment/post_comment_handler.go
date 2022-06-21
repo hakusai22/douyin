@@ -10,18 +10,19 @@ import (
 	"strconv"
 )
 
+// PostCommentResponse 提交评论响应体
 type PostCommentResponse struct {
 	models.CommonResponse
 	*comment.Response
 }
 
+// PostCommentHandler handler
 func PostCommentHandler(c *gin.Context) {
 	NewProxyPostCommentHandler(c).Do()
 }
 
 type ProxyPostCommentHandler struct {
 	*gin.Context
-
 	videoId     int64
 	userId      int64
 	commentId   int64
@@ -34,24 +35,23 @@ func NewProxyPostCommentHandler(context *gin.Context) *ProxyPostCommentHandler {
 }
 
 func (p *ProxyPostCommentHandler) Do() {
-	//解析参数
+	// 参数判断
 	if err := p.parseNum(); err != nil {
 		p.SendError(err.Error())
 		return
 	}
-
-	//正式调用Service层
+	// 调用service层的方法 进数据库
 	commentRes, err := comment.PostComment(p.userId, p.videoId, p.commentId, p.actionType, p.commentText)
 	if err != nil {
 		p.SendError(err.Error())
 		return
 	}
-
-	//成功返回
+	// 成功返回
 	p.SendOk(commentRes)
 }
 
 func (p *ProxyPostCommentHandler) parseNum() error {
+	//userId
 	rawUserId, _ := p.Get("user_id")
 	userId, ok := rawUserId.(int64)
 	if !ok {
@@ -59,6 +59,7 @@ func (p *ProxyPostCommentHandler) parseNum() error {
 	}
 	p.userId = userId
 
+	//视频id
 	rawVideoId := p.Query("video_id")
 	videoId, err := strconv.ParseInt(rawVideoId, 10, 64)
 	if err != nil {
@@ -70,8 +71,10 @@ func (p *ProxyPostCommentHandler) parseNum() error {
 	rawActionType := p.Query("action_type")
 	actionType, err := strconv.ParseInt(rawActionType, 10, 64)
 	switch actionType {
+	//创建
 	case comment.CREATE:
 		p.commentText = p.Query("comment_text")
+	//删除
 	case comment.DELETE:
 		p.commentId, err = strconv.ParseInt(p.Query("comment_id"), 10, 64)
 		if err != nil {
@@ -84,11 +87,13 @@ func (p *ProxyPostCommentHandler) parseNum() error {
 	return nil
 }
 
+// SendError error
 func (p *ProxyPostCommentHandler) SendError(msg string) {
 	p.JSON(http.StatusOK, PostCommentResponse{
 		CommonResponse: models.CommonResponse{StatusCode: 1, StatusMsg: msg}, Response: &comment.Response{}})
 }
 
+// SendOk ok
 func (p *ProxyPostCommentHandler) SendOk(comment *comment.Response) {
 	p.JSON(http.StatusOK, PostCommentResponse{
 		CommonResponse: models.CommonResponse{StatusCode: 0},

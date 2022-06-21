@@ -31,7 +31,7 @@ type UserInfo struct {
 type UserInfoDAO struct {
 }
 
-// 全局dao  单例 (它能够让函数方法只执行一次)
+// 全局dao 单例 (它能够让函数方法只执行一次)
 var (
 	userInfoDAO  *UserInfoDAO
 	userInfoOnce sync.Once
