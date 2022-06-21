@@ -28,7 +28,6 @@ func UserRegisterHandler(c *gin.Context) {
 	}
 	//调用service方法
 	registerResponse, err := user_login.PostUserLogin(username, password)
-
 	if err != nil {
 		c.JSON(http.StatusOK, UserRegisterResponse{
 			CommonResponse: models.CommonResponse{
@@ -38,6 +37,7 @@ func UserRegisterHandler(c *gin.Context) {
 		})
 		return
 	}
+	//josn返回数据到context里面去
 	c.JSON(http.StatusOK, UserRegisterResponse{
 		CommonResponse: models.CommonResponse{StatusCode: 0},
 		LoginResponse:  registerResponse,

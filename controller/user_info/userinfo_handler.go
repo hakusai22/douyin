@@ -7,6 +7,7 @@ import (
 	"net/http"
 )
 
+// UserResponse 用户信息返回
 type UserResponse struct {
 	models.CommonResponse
 	User *models.UserInfo `json:"user"`
@@ -20,6 +21,7 @@ func UserInfoHandler(c *gin.Context) {
 		p.UserInfoError("解析userId出错")
 		return
 	}
+	//查出用户信息json传递给客户端
 	err := p.DoQueryUserInfoByUserId(rawId)
 	if err != nil {
 		p.UserInfoError(err.Error())
@@ -42,11 +44,13 @@ func (p *ProxyUserInfo) DoQueryUserInfoByUserId(rawId interface{}) error {
 	//由于得到userinfo不需要组装model层的数据，所以直接调用model层的接口
 	userinfoDAO := models.NewUserInfoDAO()
 
+	//定义userInfo 传递 赋值
 	var userInfo models.UserInfo
 	err := userinfoDAO.QueryUserInfoById(userId, &userInfo)
 	if err != nil {
 		return err
 	}
+	//p.userInfo 进行封装
 	p.UserInfoOk(&userInfo)
 	return nil
 }
@@ -57,6 +61,7 @@ func (p *ProxyUserInfo) UserInfoError(msg string) {
 	})
 }
 
+// UserInfoOk ProxyUserInfo中的context
 func (p *ProxyUserInfo) UserInfoOk(user *models.UserInfo) {
 	p.c.JSON(http.StatusOK, UserResponse{
 		CommonResponse: models.CommonResponse{StatusCode: 0},

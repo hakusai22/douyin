@@ -11,6 +11,7 @@ func PostUserLogin(username, password string) (*LoginResponse, error) {
 	return NewPostUserLoginFlow(username, password).Do()
 }
 
+// NewPostUserLoginFlow 封装一层
 func NewPostUserLoginFlow(username, password string) *PostUserLoginFlow {
 	return &PostUserLoginFlow{username: username, password: password}
 }
@@ -18,10 +19,9 @@ func NewPostUserLoginFlow(username, password string) *PostUserLoginFlow {
 type PostUserLoginFlow struct {
 	username string
 	password string
-
-	data   *LoginResponse
-	userid int64
-	token  string
+	data     *LoginResponse
+	userid   int64
+	token    string
 }
 
 func (q *PostUserLoginFlow) Do() (*LoginResponse, error) {

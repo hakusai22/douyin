@@ -55,6 +55,7 @@ func ParseToken(tokenString string) (*Claims, bool) {
 	return nil, false
 }
 
+// JWTMiddleWare 直接拦截token 解析出userId
 // JWTMiddleWare 鉴权中间件，鉴权并设置user_id
 func JWTMiddleWare() gin.HandlerFunc {
 	return func(c *gin.Context) {

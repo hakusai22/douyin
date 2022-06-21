@@ -85,6 +85,7 @@ func (p *ProxyFeedVideoList) DoHasToken(token string) error {
 	return errors.New("token不正确")
 }
 
+// FeedVideoListError 转为json返回给客户端
 func (p *ProxyFeedVideoList) FeedVideoListError(msg string) {
 	p.JSON(http.StatusOK, FeedResponse{CommonResponse: models.CommonResponse{
 		StatusCode: 1,
@@ -92,6 +93,7 @@ func (p *ProxyFeedVideoList) FeedVideoListError(msg string) {
 	}})
 }
 
+// FeedVideoListOk 转为json返回给客户端
 func (p *ProxyFeedVideoList) FeedVideoListOk(videoList *video.FeedVideoList) {
 	p.JSON(http.StatusOK, FeedResponse{
 		CommonResponse: models.CommonResponse{
