@@ -6,6 +6,7 @@ import (
 	"github.com/hakusai22/douyin/models"
 )
 
+//常量
 const (
 	PLUS  = 1
 	MINUS = 2
@@ -29,12 +30,12 @@ func NewPostFavorStateFlow(userId, videoId, action int64) *PostFavorStateFlow {
 	}
 }
 
+// Do 判断是点赞还是取消点赞
 func (p *PostFavorStateFlow) Do() error {
 	var err error
 	if err = p.checkNum(); err != nil {
 		return err
 	}
-
 	switch p.actionType {
 	case PLUS:
 		err = p.PlusOperation()

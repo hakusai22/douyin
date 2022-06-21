@@ -25,20 +25,19 @@ func NewProxyPostFavorHandler(c *gin.Context) *ProxyPostFavorHandler {
 	return &ProxyPostFavorHandler{Context: c}
 }
 
+// Do 全都是引用传递
 func (p *ProxyPostFavorHandler) Do() {
-	//解析参数
+	//解析参数 赋值
 	if err := p.parseNum(); err != nil {
 		p.SendError(err.Error())
 		return
 	}
-
-	//正式调用
+	//调用service层
 	err := video.PostFavorState(p.userId, p.videoId, p.actionType)
 	if err != nil {
 		p.SendError(err.Error())
 		return
 	}
-
 	//成功返回
 	p.SendOk()
 }
@@ -50,7 +49,6 @@ func (p *ProxyPostFavorHandler) parseNum() error {
 	if !ok {
 		return errors.New("userId解析出错")
 	}
-
 	rawVideoId := p.Query("video_id")
 	videoId, err := strconv.ParseInt(rawVideoId, 10, 64)
 	if err != nil {

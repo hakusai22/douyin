@@ -5,26 +5,29 @@ import (
 	"github.com/hakusai22/douyin/models"
 )
 
+// FavorList 返回的结构
 type FavorList struct {
 	Videos []*models.Video `json:"video_list"`
 }
 
+// QueryFavorVideoList handler 调用方法
 func QueryFavorVideoList(userId int64) (*FavorList, error) {
 	return NewQueryFavorVideoListFlow(userId).Do()
 }
 
+// QueryFavorVideoListFlow 封装的结构
 type QueryFavorVideoListFlow struct {
-	userId int64
-
-	videos []*models.Video
-
+	userId    int64
+	videos    []*models.Video
 	videoList *FavorList
 }
 
+// NewQueryFavorVideoListFlow 封装一层
 func NewQueryFavorVideoListFlow(userId int64) *QueryFavorVideoListFlow {
 	return &QueryFavorVideoListFlow{userId: userId}
 }
 
+// Do 三部曲
 func (q *QueryFavorVideoListFlow) Do() (*FavorList, error) {
 	if err := q.checkNum(); err != nil {
 		return nil, err

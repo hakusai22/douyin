@@ -16,6 +16,7 @@ const (
 	relation = "relation"
 )
 
+//创建redis client
 func init() {
 	rdb = redis.NewClient(
 		&redis.Options{
