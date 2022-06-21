@@ -34,6 +34,7 @@ func NewProxyPostCommentHandler(context *gin.Context) *ProxyPostCommentHandler {
 	return &ProxyPostCommentHandler{Context: context}
 }
 
+// Do 三部曲
 func (p *ProxyPostCommentHandler) Do() {
 	// 参数判断
 	if err := p.parseNum(); err != nil {
@@ -46,7 +47,7 @@ func (p *ProxyPostCommentHandler) Do() {
 		p.SendError(err.Error())
 		return
 	}
-	// 成功返回
+	// 成功返回json 到gin
 	p.SendOk(commentRes)
 }
 
@@ -58,7 +59,6 @@ func (p *ProxyPostCommentHandler) parseNum() error {
 		return errors.New("userId解析出错")
 	}
 	p.userId = userId
-
 	//视频id
 	rawVideoId := p.Query("video_id")
 	videoId, err := strconv.ParseInt(rawVideoId, 10, 64)

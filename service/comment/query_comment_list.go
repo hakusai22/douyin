@@ -69,7 +69,7 @@ func (q *QueryCommentListFlow) prepareData() error {
 	return nil
 }
 
-//打包
+//打包 封装
 func (q *QueryCommentListFlow) packData() error {
 	//评论集合 将q里面的comments封装成List形式
 	q.commentList = &List{Comments: q.comments}

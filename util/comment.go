@@ -5,6 +5,7 @@ import (
 	"github.com/hakusai22/douyin/models"
 )
 
+// FillCommentListFields list操作
 func FillCommentListFields(comments *[]*models.Comment) error {
 	size := len(*comments)
 	if comments == nil || size == 0 {
@@ -18,6 +19,7 @@ func FillCommentListFields(comments *[]*models.Comment) error {
 	return nil
 }
 
+// FillCommentFields 单个操作 FillCommentFields
 func FillCommentFields(comment *models.Comment) error {
 	if comment == nil {
 		return errors.New("FillCommentFields comments为空")

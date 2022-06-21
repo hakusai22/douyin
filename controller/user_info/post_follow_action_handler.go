@@ -15,7 +15,6 @@ func PostFollowActionHandler(c *gin.Context) {
 
 type ProxyPostFollowAction struct {
 	*gin.Context
-
 	userId     int64
 	followId   int64
 	actionType int

@@ -19,9 +19,7 @@ func QueryFollowerHandler(c *gin.Context) {
 
 type ProxyQueryFollowerHandler struct {
 	*gin.Context
-
 	userId int64
-
 	*user_info.FollowerList
 }
 

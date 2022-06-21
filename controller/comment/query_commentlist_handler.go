@@ -23,7 +23,6 @@ func QueryCommentListHandler(c *gin.Context) {
 
 type ProxyCommentListHandler struct {
 	*gin.Context
-
 	videoId int64
 	userId  int64
 }

@@ -18,10 +18,8 @@ func QueryFollowList(userId int64) (*FollowList, error) {
 }
 
 type QueryFollowListFlow struct {
-	userId int64
-
+	userId   int64
 	userList []*models.UserInfo
-
 	*FollowList
 }
 
@@ -40,7 +38,6 @@ func (q *QueryFollowListFlow) Do() (*FollowList, error) {
 	if err = q.packData(); err != nil {
 		return nil, err
 	}
-
 	return q.FollowList, nil
 }
 

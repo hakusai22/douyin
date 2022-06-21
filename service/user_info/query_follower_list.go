@@ -14,10 +14,8 @@ func QueryFollowerList(userId int64) (*FollowerList, error) {
 }
 
 type QueryFollowerListFlow struct {
-	userId int64
-
+	userId   int64
 	userList []*models.UserInfo
-
 	*FollowerList
 }
 
