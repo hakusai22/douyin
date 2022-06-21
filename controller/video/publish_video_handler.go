@@ -9,6 +9,7 @@ import (
 	"path/filepath"
 )
 
+//key value 判断是否是视频/图片
 var (
 	videoIndexMap = map[string]struct{}{
 		".mp4":  {},
@@ -30,21 +31,19 @@ var (
 func PublishVideoHandler(c *gin.Context) {
 	//准备参数
 	rawId, _ := c.Get("user_id")
-
+	//判断是否是int64
 	userId, ok := rawId.(int64)
 	if !ok {
 		PublishVideoError(c, "解析UserId出错")
 		return
 	}
-
+	//form-data里拿出数据来
 	title := c.PostForm("title")
-
 	form, err := c.MultipartForm()
 	if err != nil {
 		PublishVideoError(c, err.Error())
 		return
 	}
-
 	//支持多文件上传
 	files := form.File["data"]
 	for _, file := range files {
@@ -55,7 +54,9 @@ func PublishVideoHandler(c *gin.Context) {
 		}
 		name := util.NewFileName(userId) //根据userId得到唯一的文件名
 		filename := name + suffix
+		//加前缀
 		savePath := filepath.Join("./static", filename)
+		//保存文件api
 		err = c.SaveUploadedFile(file, savePath)
 		if err != nil {
 			PublishVideoError(c, err.Error())
@@ -73,6 +74,7 @@ func PublishVideoHandler(c *gin.Context) {
 			PublishVideoError(c, err.Error())
 			continue
 		}
+		//json返回gin
 		PublishVideoOk(c, file.Filename+"上传成功")
 	}
 }

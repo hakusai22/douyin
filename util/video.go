@@ -19,7 +19,6 @@ func GetFileUrl(fileName string) string {
 // NewFileName 根据userId+用户发布的视频数量连接成独一无二的文件名
 func NewFileName(userId int64) string {
 	var count int64
-
 	err := models.NewVideoDAO().QueryVideoCountByUserId(userId, &count)
 	if err != nil {
 		log.Println(err)

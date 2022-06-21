@@ -29,6 +29,7 @@ type Server struct {
 	Port int
 }
 
+// Path ffmpeg_path和static_path
 type Path struct {
 	FfmpegPath       string `toml:"ffmpeg_path"`
 	StaticSourcePath string `toml:"static_source_path"`
@@ -41,10 +42,12 @@ type Config struct {
 	Path   `toml:"path"`
 }
 
+// Info 全局参数配置
 var Info Config
 
 //包初始化加载时候会调用的函数
 func init() {
+	// toml加载配置文件xxx.toml
 	if _, err := toml.DecodeFile("/Users/yinpeng/GoWorkSpace/douyin/config/config.toml", &Info); err != nil {
 		panic(err)
 	}
