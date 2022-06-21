@@ -22,11 +22,12 @@ func QueryVideoListHandler(c *gin.Context) {
 	}
 }
 
-// ProxyQueryVideoList 代理类
+// ProxyQueryVideoList  context代理类
 type ProxyQueryVideoList struct {
 	c *gin.Context
 }
 
+// NewProxyQueryVideoList 封装一层
 func NewProxyQueryVideoList(c *gin.Context) *ProxyQueryVideoList {
 	return &ProxyQueryVideoList{c: c}
 }
@@ -37,12 +38,11 @@ func (p *ProxyQueryVideoList) DoQueryVideoListByUserId(rawId interface{}) error 
 	if !ok {
 		return errors.New("userId解析出错")
 	}
-
 	videoList, err := video.QueryVideoListByUserId(userId)
 	if err != nil {
 		return err
 	}
-
+	//json 返回到gin
 	p.QueryVideoListOk(videoList)
 	return nil
 }

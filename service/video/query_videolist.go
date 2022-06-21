@@ -6,6 +6,7 @@ import (
 	"github.com/hakusai22/douyin/models"
 )
 
+//List 视频集合返回
 type List struct {
 	Videos []*models.Video `json:"video_list,omitempty"`
 }
@@ -40,7 +41,6 @@ func (q *QueryVideoListByUserIdFlow) checkNum() error {
 	if !models.NewUserInfoDAO().IsUserExistById(q.userId) {
 		return errors.New("用户不存在")
 	}
-
 	return nil
 }
 
@@ -50,7 +50,7 @@ func (q *QueryVideoListByUserIdFlow) packData() error {
 	if err != nil {
 		return err
 	}
-	//作者信息查询
+	//用户信息查询
 	var userInfo models.UserInfo
 	err = models.NewUserInfoDAO().QueryUserInfoById(q.userId, &userInfo)
 	p := cache.NewProxyIndexMap()
@@ -62,8 +62,6 @@ func (q *QueryVideoListByUserIdFlow) packData() error {
 		q.videos[i].Author = userInfo
 		q.videos[i].IsFavorite = p.GetVideoFavorState(q.userId, q.videos[i].Id)
 	}
-
 	q.videoList = &List{Videos: q.videos}
-
 	return nil
 }
