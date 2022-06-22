@@ -1,0 +1,15 @@
+mysql:
+  host: "127.0.0.1"
+  port: 3306
+  user: "root"
+  password: "12345678"
+  dbname: "douyin"
+  max_open_conns: 200
+  max_idle_conns: 50
+redis:
+  host: "127.0.0.1"
+  port: 6379
+  db: 0
+  password: ""
+  pool_size: 100
+
