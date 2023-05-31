@@ -182,3 +182,12 @@ hakusai22@qq.com
 
 ![img.png](https://fastly.jsdelivr.net/gh/hakusai22/douyin/image/img2.png)
 ![img.png](https://fastly.jsdelivr.net/gh/hakusai22/douyin/image/img3.png)
+
+## star 趋势图
+
+![Stargazers over time](https://starchart.cc/hakusai22/douyin.svg)
+
+## 贡献者
+<a href="https://github.com/hakusai22/douyin/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=hakusai22/douyin" />
+</a>
