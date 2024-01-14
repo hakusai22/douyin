@@ -3,6 +3,7 @@ package redis_cache
 import (
 	"context"
 	"fmt"
+	"github.com/go-redis/redis/v8"
 	"github.com/hakusai22/douyin/v1/config"
 )
 
