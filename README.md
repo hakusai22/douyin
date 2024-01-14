@@ -12,6 +12,7 @@
 <!-- PROJECT LOGO -->
 <br />
 
+[极简抖音App使用说明 ](https://bytedance.feishu.cn/docx/NMneddpKCoXZJLxHePUcTzGgnmf)
 
 
 <p align="center">

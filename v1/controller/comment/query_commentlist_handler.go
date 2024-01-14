@@ -1,11 +1,11 @@
 package comment
 
 import (
+	"douyin/v1/controller/video"
+	"douyin/v1/models"
+	"douyin/v1/service/comment"
 	"errors"
 	"github.com/gin-gonic/gin"
-	"github.com/hakusai22/douyin/v1/controller/video"
-	"github.com/hakusai22/douyin/v1/models"
-	"github.com/hakusai22/douyin/v1/service/comment"
 	"net/http"
 	"strconv"
 )
