@@ -1,9 +1,9 @@
 package user_login
 
 import (
+	"douyin/v1/middlewares"
+	models2 "douyin/v1/models"
 	"errors"
-	"github.com/hakusai22/douyin/v1/middlewares"
-	models2 "github.com/hakusai22/douyin/v1/models"
 )
 
 // PostUserLogin 注册用户并得到token和id

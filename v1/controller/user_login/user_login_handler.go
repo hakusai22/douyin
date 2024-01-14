@@ -1,9 +1,9 @@
 package user_login
 
 import (
+	"douyin/v1/models"
+	"douyin/v1/service/user_login"
 	"github.com/gin-gonic/gin"
-	"github.com/hakusai22/douyin/v1/models"
-	"github.com/hakusai22/douyin/v1/service/user_login"
 	"net/http"
 )
 

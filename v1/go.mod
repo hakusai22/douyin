@@ -1,4 +1,4 @@
-module github.com/hakusai22/douyin/v1
+module douyin/v1
 
 go 1.21.5
 

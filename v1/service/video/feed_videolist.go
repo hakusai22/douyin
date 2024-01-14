@@ -1,8 +1,8 @@
 package video
 
 import (
-	"github.com/hakusai22/douyin/v1/models"
-	"github.com/hakusai22/douyin/v1/util"
+	"douyin/v1/models"
+	"douyin/v1/util"
 	"time"
 )
 

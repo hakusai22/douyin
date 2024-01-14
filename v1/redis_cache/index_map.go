@@ -2,9 +2,9 @@ package redis_cache
 
 import (
 	"context"
+	"douyin/v1/config"
 	"fmt"
 	"github.com/go-redis/redis/v8"
-	"github.com/hakusai22/douyin/v1/config"
 )
 
 // 用户id->被点赞的视频id集合->是否含有该视频id

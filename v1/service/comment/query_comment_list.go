@@ -1,10 +1,10 @@
 package comment
 
 import (
+	models2 "douyin/v1/models"
+	"douyin/v1/util"
 	"errors"
 	"fmt"
-	models2 "github.com/hakusai22/douyin/v1/models"
-	"github.com/hakusai22/douyin/v1/util"
 )
 
 // List list封装

@@ -1,8 +1,8 @@
 package user_info
 
 import (
+	"douyin/v1/models"
 	"errors"
-	"github.com/hakusai22/douyin/v1/models"
 )
 
 var (

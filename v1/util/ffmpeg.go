@@ -2,9 +2,9 @@ package util
 
 import "C"
 import (
+	"douyin/v1/config"
 	"errors"
 	"fmt"
-	"github.com/hakusai22/douyin/v1/config"
 	"log"
 	"unsafe"
 )

@@ -1,10 +1,10 @@
 package user_info
 
 import (
+	"douyin/v1/models"
+	user_info2 "douyin/v1/service/user_info"
 	"errors"
 	"github.com/gin-gonic/gin"
-	"github.com/hakusai22/douyin/v1/models"
-	user_info2 "github.com/hakusai22/douyin/v1/service/user_info"
 	"net/http"
 )
 

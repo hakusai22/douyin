@@ -1,11 +1,11 @@
 package video
 
 import (
+	"douyin/v1/middlewares"
+	"douyin/v1/models"
+	"douyin/v1/service/video"
 	"errors"
 	"github.com/gin-gonic/gin"
-	"github.com/hakusai22/douyin/v1/middlewares"
-	"github.com/hakusai22/douyin/v1/models"
-	"github.com/hakusai22/douyin/v1/service/video"
 	"net/http"
 	"strconv"
 	"time"

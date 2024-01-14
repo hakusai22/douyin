@@ -1,8 +1,8 @@
 package video
 
 import (
+	models2 "douyin/v1/models"
 	"errors"
-	models2 "github.com/hakusai22/douyin/v1/models"
 )
 
 // FavorList 返回的结构

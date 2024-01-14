@@ -16,29 +16,29 @@
 
 
 <p align="center">
-    <a href="https://github.com/hakusai22/douyin/">
+    <a href="https://douyin/">
     <img src="https://fastly.jsdelivr.net/gh/hakusai22/image/qq.jpg" alt="Logo" width="200" height="200">
     </a>
     <h3 align="center">字节青训营抖音项目</h3>
   <p align="center">
     ·
-    <a href="https://github.com/hakusai22/douyin/issues">报告Bug</a>
+    <a href="https://douyin/issues">报告Bug</a>
     ·
-    <a href="https://github.com/hakusai22/douyin/issues">提出新特性</a>
+    <a href="https://douyin/issues">提出新特性</a>
   </p>
 
 <!-- links -->
 [your-project-path]:hakusai22/douyin
 [contributors-shield]: https://img.shields.io/github/contributors/hakusai22/douyin.svg?style=for-the-badge
-[contributors-url]: https://github.com/hakusai22/douyin/graphs/contributors
+[contributors-url]: https://douyin/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/hakusai22/douyin.svg?style=for-the-badge
-[forks-url]: https://github.com/hakusai22/douyin/network/members
+[forks-url]: https://douyin/network/members
 [stars-shield]: https://img.shields.io/github/stars/hakusai22/douyin.svg?style=for-the-badge
-[stars-url]: https://github.com/hakusai22/douyin/stargazers
+[stars-url]: https://douyin/stargazers
 [issues-shield]: https://img.shields.io/github/issues/hakusai22/douyin.svg?style=for-the-badge
 [issues-url]: https://img.shields.io/github/issues/hakusai22/douyin.svg
 [license-shield]: https://img.shields.io/github/license/hakusai22/douyin.svg?style=for-the-badge
-[license-url]: https://github.com/hakusai22/douyin/blob/master/LICENSE
+[license-url]: https://douyin/blob/master/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/xxxx
 
@@ -190,6 +190,6 @@ hakusai22@qq.com
 ![Stargazers over time](https://starchart.cc/hakusai22/douyin.svg)
 
 ## 贡献者
-<a href="https://github.com/hakusai22/douyin/graphs/contributors">
+<a href="https://douyin/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=hakusai22/douyin" />
 </a>

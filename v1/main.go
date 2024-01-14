@@ -1,9 +1,9 @@
 package main
 
 import (
+	"douyin/v1/config"
+	"douyin/v1/router"
 	"fmt"
-	"github.com/hakusai22/douyin/v1/config"
-	"github.com/hakusai22/douyin/v1/router"
 )
 
 func main() {

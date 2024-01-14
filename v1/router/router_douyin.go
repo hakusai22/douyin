@@ -1,13 +1,13 @@
 package router
 
 import (
+	comment2 "douyin/v1/controller/comment"
+	user_info2 "douyin/v1/controller/user_info"
+	user_login2 "douyin/v1/controller/user_login"
+	video2 "douyin/v1/controller/video"
+	middlewares2 "douyin/v1/middlewares"
+	"douyin/v1/models"
 	"github.com/gin-gonic/gin"
-	comment2 "github.com/hakusai22/douyin/v1/controller/comment"
-	user_info2 "github.com/hakusai22/douyin/v1/controller/user_info"
-	user_login2 "github.com/hakusai22/douyin/v1/controller/user_login"
-	video2 "github.com/hakusai22/douyin/v1/controller/video"
-	middlewares2 "github.com/hakusai22/douyin/v1/middlewares"
-	"github.com/hakusai22/douyin/v1/models"
 )
 
 func InitDouyinRouter() *gin.Engine {

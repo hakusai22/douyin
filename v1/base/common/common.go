@@ -9,7 +9,7 @@ import (
 const (
 	KCtxUserIDKey   = "userID"   // userId 上下文的 userId
 	KCtxUserNameKey = "username" // username 上下文的 username
-	Kmd5Secret      = "暂时先写在这"   // 用于用户信息加密
+	Kmd5Secret      = "12345"    // 用于用户信息加密
 )
 
 var (

@@ -1,10 +1,10 @@
 package video
 
 import (
+	"douyin/v1/models"
+	"douyin/v1/service/video"
+	util2 "douyin/v1/util"
 	"github.com/gin-gonic/gin"
-	"github.com/hakusai22/douyin/v1/models"
-	"github.com/hakusai22/douyin/v1/service/video"
-	util2 "github.com/hakusai22/douyin/v1/util"
 	"net/http"
 	"path/filepath"
 )

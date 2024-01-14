@@ -1,9 +1,9 @@
 package user_info
 
 import (
+	"douyin/v1/models"
+	"douyin/v1/redis_cache"
 	"errors"
-	"github.com/hakusai22/douyin/v1/models"
-	"github.com/hakusai22/douyin/v1/redis_cache"
 )
 
 const (

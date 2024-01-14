@@ -1,11 +1,11 @@
 package util
 
 import (
+	"douyin/v1/config"
+	models2 "douyin/v1/models"
+	"douyin/v1/redis_cache"
 	"errors"
 	"fmt"
-	"github.com/hakusai22/douyin/v1/config"
-	models2 "github.com/hakusai22/douyin/v1/models"
-	"github.com/hakusai22/douyin/v1/redis_cache"
 	"log"
 	"path/filepath"
 	"time"

@@ -1,7 +1,7 @@
 package models
 
 import (
-	"github.com/hakusai22/douyin/v1/config"
+	"douyin/v1/config"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
