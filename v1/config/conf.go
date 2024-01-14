@@ -48,7 +48,7 @@ var Info Config
 // 包初始化加载时候会调用的函数
 func init() {
 	// toml加载配置文件xxx.toml
-	if _, err := toml.DecodeFile("/Users/yinpeng/GoWorkSpace/douyin/config/config.toml", &Info); err != nil {
+	if _, err := toml.DecodeFile("/Users/yinpeng/GoWorkSpace/douyin/v1/config/config.toml", &Info); err != nil {
 		panic(err)
 	}
 	//去除左右的空格

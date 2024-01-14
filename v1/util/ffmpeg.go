@@ -1,7 +1,6 @@
 package util
 
 import "C"
-
 import (
 	"errors"
 	"fmt"
@@ -9,6 +8,12 @@ import (
 	"log"
 	"unsafe"
 )
+
+//#include <stdlib.h>
+//int startCmd(const char* cmd){
+//	  return system(cmd);
+//}
+import "C"
 
 type Video2Image struct {
 	InputPath  string

@@ -10,6 +10,7 @@ require (
 	github.com/gin-gonic/gin v1.7.7
 	github.com/go-redis/redis/v8 v8.11.5
 	github.com/spf13/viper v1.12.0
+	go.sancus.dev/sancus v0.7.1
 	go.uber.org/zap v1.17.0
 	gorm.io/driver/mysql v1.3.3
 	gorm.io/gorm v1.23.5
